@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>
+        <%= htmlWebpackPlugin.options.title %>
+    </title>
+</head>
+
+<body onload="doinit()">
+
+    <% for (var index in htmlWebpackPlugin.files.js) { %>
+        <script src="<%= htmlWebpackPlugin.files.js[index] %>"></script>
+        <% } %>
+
+            <div id="top">
+                <div id="app">
+                </div>
+            </div>
+</body>

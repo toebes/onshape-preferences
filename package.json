@@ -1,0 +1,25 @@
+{
+  "name": "onshape-preferences",
+  "version": "1.5.0",
+  "description": "",
+  "main": "app/main.ts",
+  "scripts": {
+    "serve": "webpack serve --mode=development",
+    "build": "webpack --mode=production --env=zip=y",
+    "dev": "webpack --mode=development",
+    "preinstall": "npx npm-force-resolutions",
+    "analyze": "webpack --mode=production --analyze --env=zip=y"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "filemanager-webpack-plugin": "^8.0.0",
+    "ts-loader": "^9.4.2",
+    "typescript": "^4.9.5",
+    "webpack-cli": "^5.0.1"
+  },
+  "dependencies": {
+    "js-cookie": "^3.0.1",
+    "onshape-typescript-fetch": "github:toebes/onshape-typescript-fetch"
+  }
+}

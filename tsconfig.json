@@ -1,0 +1,14 @@
+{
+    "include": [
+        "app/**/*"
+   ],
+   "exclude": [
+   ],
+    "compilerOptions": {
+        "charset": "utf8",
+        "sourceMap": true,
+        "target": "es5",
+        "lib": ["es5", "es6", "dom"],
+        "isolatedModules": true
+        }
+}
