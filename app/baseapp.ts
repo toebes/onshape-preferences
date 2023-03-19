@@ -51,6 +51,7 @@ export class BaseApp {
     public workspaceId = '';
     public elementId = '';
     public server = 'https://cad.onshape.com';
+    public baseserver = '';
     public userId = '';
     public clientId = '';
     public companyId = '';
@@ -183,17 +184,6 @@ export class BaseApp {
         xhr.send();
     }
     /**
-     *
-     * @param uri URI returned from Onshape
-     * @returns Cleaned up URI that can be passed to
-     */
-    public fixOnshapeURI(uri: string): string {
-        if (uri.substring(0, this.server.length) === this.server) {
-            uri = uri.substring(this.server.length);
-        }
-        return uri;
-    }
-    /**
      * Replace the main app elements.  Note if there is no app div, the elements are appended to the main body so that they aren't lost
      * @param elem Element to replace
      */
@@ -214,7 +204,28 @@ export class BaseApp {
         h2.innerHTML = 'Initializing';
         this.setAppElements(h2);
     }
-
+    /**
+     *
+     * @returns Promise to the access token
+     */
+    public getAccessToken(): Promise<string> {
+        return new Promise<string>((resolve, reject) => {
+            // TODO: Check lifetime of bearer token and if needed request a new one
+            resolve('Bearer ' + this.access_token);
+        });
+    }
+    /**
+     *
+     * @param uri URI returned from Onshape
+     * @returns Cleaned up URI that can be passed to
+     */
+    public fixOnshapeURI(uri: string): string {
+        const apipos = uri.indexOf('/api/');
+        if (apipos >= 0) {
+            uri = uri.substring(apipos);
+        }
+        return uri;
+    }
     /**
      * Call a generic URL returned from an Onshape response and transform it to the correct type
      * @param url Url to call
@@ -272,27 +283,43 @@ export class BaseApp {
      * @param expires Time when the token expires and needs to be updated
      */
     public initApp(access_token: string, refresh_token: string, expires: Date) {
+        // We want to strip off everything before the /api/
+        const apipos = runtime.BASE_PATH.lastIndexOf('/api/');
+        this.baseserver = runtime.BASE_PATH.substring(0, apipos);
+        const apipart = runtime.BASE_PATH.substring(apipos);
+        // No trailing slash on the target server
+        const myserver = this.myserver.replace(/\/+$/, '');
+
         this.access_token = access_token;
         this.refresh_token = refresh_token;
         this.expires_token = expires;
-
-        this.configuration = new runtime.Configuration({
-            basePath: this.myserver, // override base path
-            // middleware?: Middleware[]; // middleware to apply before/after fetch requests
+        const uriconfigparams: runtime.ConfigurationParameters = {
+            basePath: myserver, // override base path
             accessToken: (
                 name?: string,
                 scopes?: string[]
             ): Promise<string> => {
-                return new Promise<string>((resolve, reject) => {
-                    // TODO: Check lifetime of bearer token and if needed request a new one
-                    resolve('Bearer ' + this.access_token);
-                });
+                return this.getAccessToken();
             },
             headers: { 'X-Server': this.server },
             //header params we want to use on every request
-        });
+        };
+        //
+        // For the URLs that get returned from Onshape APIs, we need to
+        // be able to clean them up and send them to our Lambda.  Since they
+        // are likely to have the right /api/ prefix (or /api/v5) we want to
+        // take them as is and pass it straight to the server.
+        //
+        const urlConfiguration = new runtime.Configuration(uriconfigparams);
 
-        this.urlAPI = new URLApi(this.configuration);
+        this.urlAPI = new URLApi(urlConfiguration);
+
+        // For the other standard apis, we need to include the /api/ prefix
+        const configparams = { ...uriconfigparams };
+        configparams.basePath = myserver + apipart;
+
+        // Initialize all the APIs that we need to support
+        this.configuration = new runtime.Configuration(configparams);
         this.variablesApi = new VariablesApi(this.configuration);
         this.globaltreenodesApi = new GlobalTreeNodesApi(this.configuration);
 
