@@ -8,12 +8,16 @@
     "build": "webpack --mode=production --env=zip=y",
     "dev": "webpack --mode=development",
     "preinstall": "npx npm-force-resolutions",
-    "analyze": "webpack --mode=production --analyze --env=zip=y"
+    "analyze": "webpack --mode=production --analyze --env=zip=y",
+    "deploy": "node deploy",
+    "deploy-dev": "npm run dev && npm run deploy",
+    "deploy-prod": "npm run build && npm run deploy"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "filemanager-webpack-plugin": "^8.0.0",
+    "ftp-deploy": "^2.4.4",
     "html-webpack-plugin": "^5.5.0",
     "jquery": "^3.6.4",
     "ts-loader": "^9.4.2",

@@ -1,0 +1,263 @@
+
+****Making request V1.0.3
+Array
+(
+    [PATH] => /usr/local/bin:/usr/bin:/bin
+    [DOCUMENT_ROOT] => /home/u877-7baskrguaxsf/www/ftconshape.com/public_html
+    [REDIRECT_STATUS] => 200
+    [HTTPS] => on
+    [UNIQUE_ID] => ZGEdK-SjNWKNQu9YcNecmAAAAAo
+    [SCRIPT_URL] => /preferences/api/v6/appelements/d/41b081a4ff5455ac4ead0407/w/7e09d3a8f5519f8f067ec34c/e/8337533de515ecf249c45768/content
+    [SCRIPT_URI] => https://ftconshape.com/preferences/api/v6/appelements/d/41b081a4ff5455ac4ead0407/w/7e09d3a8f5519f8f067ec34c/e/8337533de515ecf249c45768/content
+    [HTTP_AUTHORIZATION] => Bearer dtTVgoGCqS/pDPxEHcyVvw==
+    [PHPHANDLER] => /usr/local/php74/bin/php
+    [HTTP_X_PORT] => 63240
+    [HTTP_X_REAL_IP] => 24.163.101.166
+    [HTTP_X_FORWARDED_PROTO] => https
+    [HTTP_HOST] => ftconshape.com
+    [HTTP_X_ACCEPT_ENCODING] => gzip, deflate, br
+    [HTTP_CONNECTION] => close
+    [CONTENT_LENGTH] => 80
+    [HTTP_SEC_CH_UA] => "Google Chrome";v="113", "Chromium";v="113", "Not-A.Brand";v="24"
+    [CONTENT_TYPE] => application/json;charset=UTF-8; qs=0.09
+    [HTTP_X_SERVER] => https://cad.onshape.com
+    [HTTP_SEC_CH_UA_MOBILE] => ?0
+    [HTTP_USER_AGENT] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36
+    [HTTP_SEC_CH_UA_PLATFORM] => "Windows"
+    [HTTP_ACCEPT] => */*
+    [HTTP_ORIGIN] => https://ftconshape.com
+    [HTTP_SEC_FETCH_SITE] => same-origin
+    [HTTP_SEC_FETCH_MODE] => cors
+    [HTTP_SEC_FETCH_DEST] => empty
+    [HTTP_REFERER] => https://ftconshape.com/preferences/?documentId=41b081a4ff5455ac4ead0407&workspaceId=7e09d3a8f5519f8f067ec34c&elementId=8337533de515ecf249c45768&code=yvFBkKoKERyOOWhpEoJQHdia
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.9,mt;q=0.8
+    [SERVER_SOFTWARE] => Apache
+    [SERVER_NAME] => ftconshape.com
+    [SERVER_ADDR] => 35.209.26.140
+    [SERVER_PORT] => 443
+    [REMOTE_ADDR] => 24.163.101.166
+    [SERVER_ADMIN] => webmaster
+    [SCRIPT_FILENAME] => /home/u877-7baskrguaxsf/www/ftconshape.com/public_html/preferences/api/api.php
+    [REMOTE_PORT] => 12148
+    [REDIRECT_URL] => /preferences/api/v6/appelements/d/41b081a4ff5455ac4ead0407/w/7e09d3a8f5519f8f067ec34c/e/8337533de515ecf249c45768/content
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.0
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /preferences/api/v6/appelements/d/41b081a4ff5455ac4ead0407/w/7e09d3a8f5519f8f067ec34c/e/8337533de515ecf249c45768/content
+    [SCRIPT_NAME] => /preferences/api/api.php
+    [PHP_DEFAULT_SOCKET_TIMEOUT] => 40
+    [PHP_MAX_EXECUTION_TIME] => 120
+    [PHP_MAX_INPUT_TIME] => 120
+    [PHP_MEMORY_LIMIT] => 768M
+    [PHP_POST_MAX_SIZE] => 256M
+    [PHP_UPLOAD_MAX_FILESIZE] => 256M
+    [PHP_SELF] => /preferences/api/api.php
+    [REQUEST_TIME_FLOAT] => 1684086059.225
+    [REQUEST_TIME] => 1684086059
+)
+
+url=https://cad.onshape.com/api/v6/appelements/d/41b081a4ff5455ac4ead0407/w/7e09d3a8f5519f8f067ec34c/e/8337533de515ecf249c45768/content?
+authorization=Bearer dtTVgoGCqS/pDPxEHcyVvw==
+method=POST
+content_type=application/json;charset=UTF-8; qs=0.09
+user_agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36
+platform="Windows"
+accept=*/*
+
+****Making request V1.0.3
+Array
+(
+    [PATH] => /usr/local/bin:/usr/bin:/bin
+    [DOCUMENT_ROOT] => /home/u877-7baskrguaxsf/www/ftconshape.com/public_html
+    [REDIRECT_STATUS] => 200
+    [HTTPS] => on
+    [UNIQUE_ID] => ZGEdK9uc1L61bP8nAF1C_wAAAAA
+    [SCRIPT_URL] => /preferences/api/v6/appelements/d/41b081a4ff5455ac4ead0407/w/7e09d3a8f5519f8f067ec34c/e/8337533de515ecf249c45768/content/json
+    [SCRIPT_URI] => https://ftconshape.com/preferences/api/v6/appelements/d/41b081a4ff5455ac4ead0407/w/7e09d3a8f5519f8f067ec34c/e/8337533de515ecf249c45768/content/json
+    [HTTP_AUTHORIZATION] => Bearer dtTVgoGCqS/pDPxEHcyVvw==
+    [PHPHANDLER] => /usr/local/php74/bin/php
+    [HTTP_X_PORT] => 63240
+    [HTTP_X_REAL_IP] => 24.163.101.166
+    [HTTP_X_FORWARDED_PROTO] => https
+    [HTTP_HOST] => ftconshape.com
+    [HTTP_X_ACCEPT_ENCODING] => gzip, deflate, br
+    [HTTP_CONNECTION] => close
+    [HTTP_SEC_CH_UA] => "Google Chrome";v="113", "Chromium";v="113", "Not-A.Brand";v="24"
+    [HTTP_X_SERVER] => https://cad.onshape.com
+    [HTTP_SEC_CH_UA_MOBILE] => ?0
+    [HTTP_USER_AGENT] => Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36
+    [HTTP_SEC_CH_UA_PLATFORM] => "Windows"
+    [HTTP_ACCEPT] => */*
+    [HTTP_SEC_FETCH_SITE] => same-origin
+    [HTTP_SEC_FETCH_MODE] => cors
+    [HTTP_SEC_FETCH_DEST] => empty
+    [HTTP_REFERER] => https://ftconshape.com/preferences/?documentId=41b081a4ff5455ac4ead0407&workspaceId=7e09d3a8f5519f8f067ec34c&elementId=8337533de515ecf249c45768&code=yvFBkKoKERyOOWhpEoJQHdia
+    [HTTP_ACCEPT_LANGUAGE] => en-US,en;q=0.9,mt;q=0.8
+    [SERVER_SOFTWARE] => Apache
+    [SERVER_NAME] => ftconshape.com
+    [SERVER_ADDR] => 35.209.26.140
+    [SERVER_PORT] => 443
+    [REMOTE_ADDR] => 24.163.101.166
+    [SERVER_ADMIN] => webmaster
+    [SCRIPT_FILENAME] => /home/u877-7baskrguaxsf/www/ftconshape.com/public_html/preferences/api/api.php
+    [REMOTE_PORT] => 12148
+    [REDIRECT_URL] => /preferences/api/v6/appelements/d/41b081a4ff5455ac4ead0407/w/7e09d3a8f5519f8f067ec34c/e/8337533de515ecf249c45768/content/json
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.0
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /preferences/api/v6/appelements/d/41b081a4ff5455ac4ead0407/w/7e09d3a8f5519f8f067ec34c/e/8337533de515ecf249c45768/content/json
+    [SCRIPT_NAME] => /preferences/api/api.php
+    [PHP_DEFAULT_SOCKET_TIMEOUT] => 40
+    [PHP_MAX_EXECUTION_TIME] => 120
+    [PHP_MAX_INPUT_TIME] => 120
+    [PHP_MEMORY_LIMIT] => 768M
+    [PHP_POST_MAX_SIZE] => 256M
+    [PHP_UPLOAD_MAX_FILESIZE] => 256M
+    [PHP_SELF] => /preferences/api/api.php
+    [REQUEST_TIME_FLOAT] => 1684086059.2262
+    [REQUEST_TIME] => 1684086059
+)
+
+url=https://cad.onshape.com/api/v6/appelements/d/41b081a4ff5455ac4ead0407/w/7e09d3a8f5519f8f067ec34c/e/8337533de515ecf249c45768/content/json?
+authorization=Bearer dtTVgoGCqS/pDPxEHcyVvw==
+method=GET
+content_type=
+user_agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36
+platform="Windows"
+accept=*/*
+HEADERS:
+GET /api/v6/appelements/d/41b081a4ff5455ac4ead0407/w/7e09d3a8f5519f8f067ec34c/e/8337533de515ecf249c45768/content/json? HTTP/1.1
+Host: cad.onshape.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Windows"
+authorization: Bearer dtTVgoGCqS/pDPxEHcyVvw==
+method: GET
+accept: */*
+
+
+RESPONSE:
+7b0a2020226d65737361676522203a2022456c656d656e74206d75737420626520616e206170706c69636174696f6e222c0a2020226d6f7265496e666f55726c22203a2022222c0a2020227374617475
+ERR: 
+INFO:
+Array
+(
+    [url] => https://cad.onshape.com/api/v6/appelements/d/41b081a4ff5455ac4ead0407/w/7e09d3a8f5519f8f067ec34c/e/8337533de515ecf249c45768/content/json
+    [content_type] => application/json;charset=utf-8
+    [http_code] => 400
+    [header_size] => 565
+    [request_size] => 384
+    [filetime] => -1
+    [ssl_verify_result] => 0
+    [redirect_count] => 0
+    [total_time] => 0.267133
+    [namelookup_time] => 0.010542
+    [connect_time] => 0.021041
+    [pretransfer_time] => 0.156008
+    [size_upload] => 0
+    [size_download] => 104
+    [speed_download] => 389
+    [speed_upload] => 0
+    [download_content_length] => 104
+    [upload_content_length] => 0
+    [starttransfer_time] => 0.2671
+    [redirect_time] => 0
+    [redirect_url] => 
+    [primary_ip] => 15.197.161.15
+    [certinfo] => Array
+        (
+        )
+
+    [primary_port] => 443
+    [local_ip] => 35.209.207.245
+    [local_port] => 53778
+    [http_version] => 2
+    [protocol] => 2
+    [ssl_verifyresult] => 0
+    [scheme] => HTTPS
+    [appconnect_time_us] => 155922
+    [connect_time_us] => 21041
+    [namelookup_time_us] => 10542
+    [pretransfer_time_us] => 156008
+    [redirect_time_us] => 0
+    [starttransfer_time_us] => 267100
+    [total_time_us] => 267133
+    [request_header] => GET /api/v6/appelements/d/41b081a4ff5455ac4ead0407/w/7e09d3a8f5519f8f067ec34c/e/8337533de515ecf249c45768/content/json? HTTP/1.1
+Host: cad.onshape.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36
+sec-ch-ua-platform: "Windows"
+authorization: Bearer dtTVgoGCqS/pDPxEHcyVvw==
+method: GET
+accept: */*
+
+
+)
+HEADERS:
+GET /api/v6/appelements/d/41b081a4ff5455ac4ead0407/w/7e09d3a8f5519f8f067ec34c/e/8337533de515ecf249c45768/content? HTTP/1.1
+Host: cad.onshape.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36
+Content-Type: application/json;charset=UTF-8; qs=0.09
+sec-ch-ua-platform: "Windows"
+authorization: Bearer dtTVgoGCqS/pDPxEHcyVvw==
+method: POST
+accept: */*
+
+
+RESPONSE:
+7b0a2020226d65737361676522203a2022456c656d656e74206d75737420626520616e206170706c69636174696f6e222c0a2020226d6f7265496e666f55726c22203a2022222c0a2020227374617475
+ERR: 
+INFO:
+Array
+(
+    [url] => https://cad.onshape.com/api/v6/appelements/d/41b081a4ff5455ac4ead0407/w/7e09d3a8f5519f8f067ec34c/e/8337533de515ecf249c45768/content
+    [content_type] => application/json;charset=utf-8
+    [http_code] => 400
+    [header_size] => 565
+    [request_size] => 435
+    [filetime] => -1
+    [ssl_verify_result] => 0
+    [redirect_count] => 0
+    [total_time] => 0.282777
+    [namelookup_time] => 0.01124
+    [connect_time] => 0.021682
+    [pretransfer_time] => 0.156736
+    [size_upload] => 0
+    [size_download] => 104
+    [speed_download] => 367
+    [speed_upload] => 0
+    [download_content_length] => 104
+    [upload_content_length] => 0
+    [starttransfer_time] => 0.282721
+    [redirect_time] => 0
+    [redirect_url] => 
+    [primary_ip] => 15.197.161.15
+    [certinfo] => Array
+        (
+        )
+
+    [primary_port] => 443
+    [local_ip] => 35.209.207.245
+    [local_port] => 53776
+    [http_version] => 2
+    [protocol] => 2
+    [ssl_verifyresult] => 0
+    [scheme] => HTTPS
+    [appconnect_time_us] => 156615
+    [connect_time_us] => 21682
+    [namelookup_time_us] => 11240
+    [pretransfer_time_us] => 156736
+    [redirect_time_us] => 0
+    [starttransfer_time_us] => 282721
+    [total_time_us] => 282777
+    [request_header] => GET /api/v6/appelements/d/41b081a4ff5455ac4ead0407/w/7e09d3a8f5519f8f067ec34c/e/8337533de515ecf249c45768/content? HTTP/1.1
+Host: cad.onshape.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36
+Content-Type: application/json;charset=UTF-8; qs=0.09
+sec-ch-ua-platform: "Windows"
+authorization: Bearer dtTVgoGCqS/pDPxEHcyVvw==
+method: POST
+accept: */*
+
+
+)

@@ -2,3 +2,4 @@ server/config.php
 node_modules/
 dist/
 generated/
+.ftpdeploy.js
