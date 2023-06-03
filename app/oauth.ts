@@ -62,3 +62,27 @@ export function ExchangeToken(
         xhr.send();
     });
 }
+
+export function RefreshToken(
+    server: string,
+    code: string
+): Promise<IExchangeToken> {
+    return new Promise((resolve, reject) => {
+        let xhr = new XMLHttpRequest();
+        let url = server + '?code=' + encodeURIComponent(code);
+
+        xhr.open('GET', url, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    resolve(JSON.parse(xhr.responseText));
+                } else {
+                    reject(xhr.statusText);
+                }
+            }
+        };
+        xhr.send();
+    });
+}

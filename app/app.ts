@@ -28,10 +28,11 @@
 import { BaseApp } from './baseapp';
 import { JTSelectItem } from './common/jtselect';
 import {
+    BTDocumentSummaryInfo,
     BTGlobalTreeMagicNodeInfo,
     BTGlobalTreeNodesInfo,
     BTGlobalTreeNodesInfoFromJSON,
-} from 'onshape-typescript-fetch/models';
+} from 'onshape-typescript-fetch';
 
 export class App extends BaseApp {
     public myserver = 'https://ftconshape.com/preferences';
@@ -172,14 +173,12 @@ export class App extends BaseApp {
                 item.thumbnail !== undefined &&
                 item.thumbnail.href !== undefined
             ) {
+                const itemInfo = item as BTDocumentSummaryInfo;
                 // It has an image, so request the thumbnail to be loaded for it
-                let img = document.createElement('img');
 
                 //img.setAttribute('src', item.thumbnail.href);
                 // Ask onshape to give us a thumbnail image to fill in
-                this.getThumbnail(item.thumbnail, 40, 40).then((src) => {
-                    img.setAttribute('src', src);
-                });
+                const img = this.onshape.createThumbnailImage(itemInfo);
                 img.setAttribute('height', '40');
                 li.appendChild(img);
             }
@@ -192,7 +191,7 @@ export class App extends BaseApp {
     public processNode(magic: string) {
         // uri: string) {
         // Get Onshape to return the list
-        this.globaltreenodesApi
+        this.onshape.globalTreeNodesApi
             .globalTreeNodesMagic({ mid: magic })
             .then((res) => {
                 this.ProcessNodeResults(res);
@@ -216,11 +215,11 @@ export class App extends BaseApp {
             // Request the UI to jump to the next entry in the list.
             // By calling setTimeout we give the UI a little break
             // setTimeout(() => {
-            this.OnshapeRequest(res.next, BTGlobalTreeNodesInfoFromJSON).then(
-                (res) => {
+            this.onshape
+                .OnshapeRequest(res.next, BTGlobalTreeNodesInfoFromJSON)
+                .then((res) => {
                     this.ProcessNodeResults(res as BTGlobalTreeNodesInfo);
-                }
-            );
+                });
             // }, 10);
         } else {
             // All done

@@ -5,10 +5,12 @@
    "exclude": [
    ],
     "compilerOptions": {
-        "charset": "utf8",
         "sourceMap": true,
         "target": "es5",
         "lib": ["es5", "es6", "dom"],
-        "isolatedModules": true
+        "isolatedModules": true,
+        "jsx": "react", // use the React mode, so call the factory
+        "jsxFactory": "JSXFactory.createElement", // The name of the factory function
+        "jsxFragmentFactory":"JSXFactory.Fragment"
         }
 }
