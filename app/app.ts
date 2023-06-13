@@ -26,6 +26,7 @@
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 import { BaseApp } from './baseapp';
+import { Preferences } from './preferences';
 import { JTSelectItem } from './common/jtselect';
 import {
     BTDocumentSummaryInfo,
@@ -40,6 +41,7 @@ export class App extends BaseApp {
     public magic = 1;
     public loaded = 0;
     public loadedlimit = 1000; // Maximum number of items we will load
+    public preferences: Preferences;
 
     public magicOptions: JTSelectItem[] = [
         { value: '0', label: '0 - Recently Opened' },
@@ -78,6 +80,20 @@ export class App extends BaseApp {
         const dumpNodes = document.createElement('div');
         dumpNodes.setAttribute('id', 'dump');
         div.appendChild(dumpNodes);
+
+        // Sandbox for playing with the preferences API.
+        this.preferences = new Preferences(this.onshape);
+        this.preferences.initUserPreferences("Preferences Demo")
+        .then((res) => {
+            this.preferences.getCustom("color", "gross")
+            .then((res) =>  {
+                console.log("Favorite Color?:")
+                console.log(res)
+            })
+        })
+        .catch((err) => {
+            console.log(err);
+        });
 
         this.setAppElements(div);
 
