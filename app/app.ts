@@ -81,19 +81,62 @@ export class App extends BaseApp {
         dumpNodes.setAttribute('id', 'dump');
         div.appendChild(dumpNodes);
 
+        console.log("Log Last Known Location");
         // Sandbox for playing with the preferences API.
         this.preferences = new Preferences(this.onshape);
         this.preferences.initUserPreferences("Preferences Demo")
-        .then((res) => {
-            this.preferences.getCustom("color", "gross")
-            .then((res) =>  {
-                console.log("Favorite Color?:")
-                console.log(res)
+            .then((init_res) => {
+                console.log("Pref Doc:");
+                console.log(init_res);
+
+                this.onshape.globalTreeNodesApi
+                .globalTreeNodesMagic({ mid: "1" })
+                .then((res) => {
+                    const nodes = res as BTGlobalTreeNodesInfo;
+
+                    this.preferences.setLastKnownLocation(nodes.items)
+                    .then((set_res) => {
+                        console.log("COMPLETE");
+                    })
+                    .catch((err) => {
+                        console.log(`Failed setting location.`);
+                        console.log(err);
+                    })
+                })
+                .catch((err) => {
+                    // Something went wrong, some mark us as no longer running.
+                    console.log(`**** Call failed: ${err}`);
+                });
             })
-        })
-        .catch((err) => {
-            console.log(err);
-        });
+            // .then((res) => {
+            //     this.preferences.getCustom("color", "gross")
+            //         .then((res) => {
+            //             console.log("Favorite Color?:")
+            //             console.log(res)
+            //         })
+            // })
+            .catch((err) => {
+                console.log(err);
+            });
+
+        // this.onshape.globalTreeNodesApi
+        //     .globalTreeNodesMagic({ mid: "1" })
+        //     .then((res) => {
+        //         const nodes = res as BTGlobalTreeNodesInfo;
+
+        //         this.preferences.setLastKnownLocation(nodes.items)
+        //         .then((set_res) => {
+        //             console.log("COMPLETE");
+        //         })
+        //         .catch((err) => {
+        //             console.log(`Failed setting location.`);
+        //             console.log(err);
+        //         })
+        //     })
+        //     .catch((err) => {
+        //         // Something went wrong, some mark us as no longer running.
+        //         console.log(`**** Call failed: ${err}`);
+        //     });
 
         this.setAppElements(div);
 
