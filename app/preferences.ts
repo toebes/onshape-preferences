@@ -80,11 +80,34 @@ export class Preferences {
     public initUserPreferences(appName: string): Promise<BTGlobalTreeProxyInfo> {
         // matches the app name.
         return new Promise((resolve, _reject) => {
-            this.getPreferencesDoc()
+            this.getUserPreferencesDoc()
                 .then((res) => {
                     this.getAppElement(appName, this.userPreferencesInfo)
                         .then((res) => {
                             resolve(this.userPreferencesInfo);
+                        })
+                        .catch((err) => {
+                            console.log(err);
+                            resolve(undefined);
+                        });
+                })
+                .catch((err) => {
+                    console.log(err);
+                    resolve(undefined);
+                });
+        });
+    }
+
+    public initAppPreferences(appName: string, parentId: string): Promise<BTGlobalTreeProxyInfo> {
+        // matches the app name.
+        return new Promise((resolve, _reject) => {
+            this.getAppPreferencesDoc(parentId)
+                .then((res1) => {
+                    console.log("whoa");
+                    console.log(res1);
+                    this.getAppElement(appName, res1)
+                        .then((res2) => {
+                            resolve(res1);
                         })
                         .catch((err) => {
                             console.log(err);
@@ -277,6 +300,26 @@ export class Preferences {
     }
 
     /**
+     * Add an item to the list of recently inserted items associated with the application.  Note that it only stores the last 50 sorted by date
+     * @param item Item to add to the insert list.
+     * 
+     * TODO: Enforce 50 item buffer.
+     */
+    public setRecentlyInserted(location: Array<BTGlobalTreeNodeInfo>, libInfo: BTGlobalTreeProxyInfo = this.userPreferencesInfo): Promise<boolean> {
+        return this.setBTGArray("recently_inserted", location, libInfo);
+    }
+
+    /**
+     *  Last entries sent to addRecentlyInserted sorted by date.
+     * 
+     * TODO: Enforce 50 item buffer, sorted by date.
+     * @returns
+     */
+    public getRecentlyInserted(libInfo: BTGlobalTreeProxyInfo = this.userPreferencesInfo): Promise<Array<BTGlobalTreeNodeInfo>> {
+        return this.getBTGArray("recently_inserted", libInfo);
+    }
+
+    /**
      * @param location Location to save - Array of BTGlobalTreeNodeInfo representing the full path to the location
      */
     public setBTGArray(
@@ -445,7 +488,7 @@ export class Preferences {
      * Retrieve the user preferences document which should be in the top level folder of Onshape
      * for this user.
      */
-    public getPreferencesDoc(): Promise<BTGlobalTreeProxyInfo> {
+    public getUserPreferencesDoc(): Promise<BTGlobalTreeProxyInfo> {
         return new Promise((resolve, reject) => {
             this.onshape.documentApi
                 .search({
@@ -460,7 +503,36 @@ export class Preferences {
                     },
                 })
                 .then((res) => {
-                    this.getDocFromQuery(res).then((res2) => {
+                    this.getDocFromQuery(res, "").then((res2) => {
+                        resolve(res2);
+                    });
+                })
+                .catch((err) => {
+                    reject(err);
+                });
+        });
+    }
+
+    /**
+     * WORK IN PROGRESS: Get the preferences document for a specific application.
+     */
+    public getAppPreferencesDoc(parentId: string): Promise<BTGlobalTreeProxyInfo> {
+        return new Promise((resolve, reject) => {
+            this.onshape.documentApi
+                .search({
+                    bTDocumentSearchParams: {
+                        // parentId: parentId,
+                        limit: 100,
+                        when: 'LATEST',
+                        sortColumn: 'name',
+                        sortOrder: '',
+                        // documentFilter: 0,
+                    },
+                })
+                .then((res) => {
+                    console.log("Search Results:");
+                    console.log(res);
+                    this.getDocFromQuery(res, parentId).then((res2) => {
                         resolve(res2);
                     });
                 })
@@ -474,7 +546,7 @@ export class Preferences {
      * Retrieve the user preferences document which should be in the top level folder of Onshape
      * for this user. If the document does not exists, create the document for the user.
      */
-    public getDocFromQuery(res): Promise<BTGlobalTreeProxyInfo> {
+    public getDocFromQuery(res, parentId: string): Promise<BTGlobalTreeProxyInfo> {
         return new Promise((resolve, reject) => {
             if (res.items.length > 0) {
                 this.userPreferencesInfo = BTGlobalTreeProxyInfoJSONTyped(
@@ -485,6 +557,7 @@ export class Preferences {
                 this.onshape.documentApi
                     .getDocumentWorkspaces({ did: res.items[0].id })
                     .then((res) => {
+                        console.log(res);
                         this.userPreferencesInfo.wvmid = res[0].id;
                         this.userPreferencesInfo.wvm = GetAssociativeDataWvmEnum['w'];
 
@@ -502,6 +575,7 @@ export class Preferences {
                             ownerId: this.onshape.userId,
                             name: '⚙ Preferences ⚙',
                             description: 'Document used to store application preferences',
+                            parentId: parentId,
                         },
                     })
                     .then((res) => {
@@ -561,7 +635,7 @@ export class Preferences {
     ): Promise<BTGlobalTreeNodeInfo> {
         return new Promise((resolve, _reject) => {
             const result: BTGlobalTreeNodeInfo = {
-                jsonType: 'proxy-foler',
+                jsonType: 'proxy-folder',
                 name: name,
             };
             resolve(undefined);
