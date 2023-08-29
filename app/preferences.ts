@@ -60,6 +60,25 @@ export function BTGlobalTreeProxyInfoJSONTyped(
     };
 }
 
+export interface BTGlobalTreeNodeConfigInfo extends BTGlobalTreeNodeInfo{
+  jsonType: string,//"document-summary-configured"
+  configuration?: string
+}
+
+export function BTGlobalTreeNodeConfigInfoJSONTyped(
+    json: any,
+    ignoreDiscriminator: boolean
+): BTGlobalTreeNodeConfigInfo {
+    if (json === undefined || json === null) {
+        return json;
+    }
+    return {
+        ...BTGlobalTreeNodeInfoFromJSONTyped(json, ignoreDiscriminator),
+        jsonType: !exists(json, 'jsonType') ? undefined : json['jsonType'],
+        configuration: !exists(json, 'configuration') ? undefined : json['configuration'],
+    };
+}
+
 export class Preferences {
     /**
      * main.ts is the main entry point for running all the typescript client code
